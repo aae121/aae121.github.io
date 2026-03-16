@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Ayman Elkhodary - CV Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%230066cc'>A</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004499;
+            --secondary: #00ccff;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --bg-light: #f5f5f5;
+            --bg-white: #ffffff;
+            --accent: #004499;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 204, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #00ccff, #0066cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #cccccc;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 1.5rem auto;
+            color: #aaaaaa;
+            line-height: 1.8;
+        }
+
+        .hero .cta {
+            display: inline-flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 102, 204, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 204, 255, 0.1);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+        }
+
+        section:nth-child(even) {
+            background: var(--bg-light);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--text-dark);
+        }
+
+        section > .container > p:nth-of-type(1) {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Education */
+        .education-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--primary);
+        }
+
+        .education-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .education-card .degree {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .badges {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Experience */
+        .experience-list {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .experience-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-top: 3px solid var(--primary);
+        }
+
+        .experience-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-card .role {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-card .meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .experience-card li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .experience-card li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-top: 3px solid var(--primary);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .project-card p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .project-tags span {
+            background: rgba(0, 102, 204, 0.1);
+            color: var(--primary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.7rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Achievements */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .achievement-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--secondary);
+            transition: transform 0.3s;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .achievement-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .achievement-card .meta {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 3rem 20px;
+            text-align: center;
+        }
+
+        footer .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        footer h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #00ccff, #0066cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: #aaaaaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #00ccff;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        footer .divider {
+            border-top: 1px solid #444;
+            margin: 2rem 0;
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 204, 255, 0.1);
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: rgba(0, 204, 255, 0.3);
+        }
+
+        /* Profile Image */
+        .profile-image {
+            max-width: 200px;
+            border-radius: 20px;
+            border: 3px solid var(--secondary);
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.2);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        section {
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .projects-grid,
+            .skills-container,
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                gap: 0.5rem;
+            }
+
+            .hero {
+                padding: 50px 20px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Ahmed Ayman Elkhodary</div>
+            <ul>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#achievements">Awards</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Ahmed Ayman Elkhodary</h1>
+            <p class="title">Computer Engineering Student & Software Engineer</p>
+            <img src="images/profile.jpg" alt="Ahmed Ayman Elkhodary" class="profile-image">
+            <p class="subtitle">Crafting intelligent solutions with AI, full-stack development, and automation. Experienced at Siemens, Samsung, Orange & Nokia.</p>
+            <div class="cta">
+                <a href="#experience" class="btn btn-primary">View Experience</a>
+                <a href="#projects" class="btn btn-secondary">See Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <p>Academic background and achievements</p>
+            <div class="education-card">
+                <h3>The American University in Cairo (AUC)</h3>
+                <p class="degree">B.Sc. in Computer Engineering</p>
+                <div class="badges">
+                    <span class="badge">Artificial Intelligence Concentration</span>
+                    <span class="badge">Minor: Mathematics</span>
+                </div>
+                <p><strong>Duration:</strong> Feb. 2022 — June 2026</p>
+                <p><strong>Location:</strong> New Cairo, Egypt</p>
+                <p>Pursuing a comprehensive education in Computer Engineering with a focus on Artificial Intelligence, complemented by advanced mathematical studies. Gaining hands-on experience through internships at leading tech companies while maintaining academic excellence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <p>Building innovative solutions at leading tech companies</p>
+            <div class="experience-list">
+                <div class="experience-card">
+                    <h3>Siemens EDA</h3>
+                    <p class="role">Software Engineering Intern</p>
+                    <div class="meta">
+                        <span>📍 Cairo Festival City Business District, New Cairo, Egypt</span>
+                        <span>📅 July 2025 – August 2025</span>
+                    </div>
+                    <ul>
+                        <li>Automated 90% of failing verification point (VP) updates in Squish tests using Python and XML</li>
+                        <li>Built a PyQt5-based GUI tool for Solido Design Environment reducing manual test maintenance time by 60%</li>
+                        <li>Parsed JSON regression logs, categorized failure types, and submitted reproducible bug reports</li>
+                        <li>Collaborated with Solido QA team in Agile sprints, reducing QA cycle time by 30%</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Samsung Electronics</h3>
+                    <p class="role">Python Intern (Samsung Innovation Campus Scholar)</p>
+                    <div class="meta">
+                        <span>📍 Cairo, Egypt</span>
+                        <span>📅 July 2024 – October 2024</span>
+                    </div>
+                    <ul>
+                        <li>Selected from 3,200 applicants as one of 70 scholars for the Samsung Innovation Campus program</li>
+                        <li>Built strong foundations in Python, focusing on core data structures and OOP</li>
+                        <li>Utilized NumPy and Pandas for real-world data manipulation and analytics</li>
+                        <li>Implemented advanced Python projects in collaboration with senior software engineers</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Orange</h3>
+                    <p class="role">Information Technology Intern</p>
+                    <div class="meta">
+                        <span>📍 Smart Village, Egypt</span>
+                        <span>📅 June 2024 - August 2024</span>
+                    </div>
+                    <ul>
+                        <li>Engineered an advanced internship management system, now permanently adopted by Orange HR</li>
+                        <li>Automated key HR processes, increasing operational efficiency by 70%</li>
+                        <li>Streamlined existing workflows through automation, improving system performance by 70%</li>
+                        <li>Enhanced efficiency by 90% utilizing AI for process optimization</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Nokia</h3>
+                    <p class="role">Computer & Telecommunications Engineering Intern</p>
+                    <div class="meta">
+                        <span>📍 Cairo, Egypt</span>
+                        <span>📅 August 2023 - September 2023</span>
+                    </div>
+                    <ul>
+                        <li>Developed an AI chatbot for Nokia's website using advanced machine learning algorithms</li>
+                        <li>Presented the chatbot project to Nokia engineers, showcasing its integration and benefits</li>
+                        <li>Acquired practical knowledge in 5G and LTE technologies through demonstrations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <p>A showcase of technical expertise and innovation</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>RISC-V Pipelined Processor</h3>
+                    <p>Designed a 5-stage pipelined 32-bit RISC-V processor in Verilog with modules for ALU, control unit, hazard detection, forwarding, and register file.</p>
+                    <div class="project-tags">
+                        <span>Verilog</span>
+                        <span>Vivado</span>
+                        <span>Hardware</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>EEG-Based Attention Classifier</h3>
+                    <p>Built an attention-state classifier using EEG data from 5 subjects. Applied CAR filtering and extracted band powers via FFT. Trained a KNN model achieving up to 100% accuracy.</p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>DSP</span>
+                        <span>Machine Learning</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Codeforces Contest Database</h3>
+                    <p>Built a MySQL database to gather and analyze Codeforces contest data. Developed a Python web crawler to extract and populate data.</p>
+                    <div class="project-tags">
+                        <span>MySQL</span>
+                        <span>Python</span>
+                        <span>Web Scraping</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>AUCourier</h3>
+                    <p>Developed a campus delivery app with blockchain tracking, AI route optimization reducing delivery times by 40%, and a chatbot for support.</p>
+                    <div class="project-tags">
+                        <span>C++</span>
+                        <span>Blockchain</span>
+                        <span>TypeScript</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>User Authentication System</h3>
+                    <p>Developed a user authentication application featuring login and registration functionalities, with user data stored in JSON and GUI interface.</p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Tkinter</span>
+                        <span>JSON</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Bank Management System</h3>
+                    <p>Designed a banking system with login, account creation, and user-friendly menu. Implemented live currency conversion and data validation.</p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>JSON</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <p>Proficient in modern technologies and development tools</p>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="skills-list">
+                        <span class="skill">Python</span>
+                        <span class="skill">C++</span>
+                        <span class="skill">Verilog</span>
+                        <span class="skill">SPICE</span>
+                        <span class="skill">TCL</span>
+                        <span class="skill">Shell Scripting</span>
+                        <span class="skill">SQL/NoSQL</span>
+                        <span class="skill">TypeScript</span>
+                        <span class="skill">VHDL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <div class="skills-list">
+                        <span class="skill">Squish</span>
+                        <span class="skill">Spectre</span>
+                        <span class="skill">Git</span>
+                        <span class="skill">Jenkins</span>
+                        <span class="skill">Jira</span>
+                        <span class="skill">Vivado</span>
+                        <span class="skill">PyQt5</span>
+                        <span class="skill">NumPy</span>
+                        <span class="skill">Pandas</span>
+                        <span class="skill">Figma</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <div class="container">
+            <h2>Certificates & Awards</h2>
+            <p>Recognition for excellence and continuous learning</p>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <h3>P&G Standout Commercial Challenge Participant</h3>
+                    <div class="meta">May 2025 • Cairo, Egypt</div>
+                    <p>Participated in a competitive case challenge involving branding, market research, and strategic thinking. Selected among the Top 20 teams out of 50 total teams.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>Dell AI Workshop</h3>
+                    <div class="meta">April 2025 • ECEA - AUC</div>
+                    <p>Completed advanced training in Artificial Intelligence technologies and applications.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>Research and Creativity Convention 2025</h3>
+                    <div class="meta">February 2025 • AUC</div>
+                    <p>Presented research at the 19th Annual EURECA Conference. Topic: Bias in Artificial Intelligence: A Controversial Issue Through an ESI Lens.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>Schneider Global Student Experience</h3>
+                    <div class="meta">June–September 2024</div>
+                    <p>Sustainability as a Business - Selected for the prestigious Schneider Electric global student experience program.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>Google UX Design Professional Certificate</h3>
+                    <div class="meta">March 2022 • Coursera</div>
+                    <p>Completed comprehensive UX design certification covering user research, wireframing, and prototyping methodologies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div>
+                <h3>Ahmed Ayman Elkhodary</h3>
+                <p>Computer Engineering student passionate about AI, automation, and building innovative solutions.</p>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Get in Touch</h3>
+                <div class="contact-info">
+                    <span>📧</span>
+                    <a href="mailto:aae121@aucegypt.edu">aae121@aucegypt.edu</a>
+                </div>
+                <div class="contact-info">
+                    <span>📱</span>
+                    <a href="tel:+201102072750">+20-110-207-2750</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider">
+            <p>© 2026 Ahmed Ayman Elkhodary. All rights reserved. | <a href="https://github.com/aae121" target="_blank">GitHub</a> | <a href="https://linkedin.com/in/ahmedaelkhodary" target="_blank">LinkedIn</a></p>
+            <div class="social-links">
+                <a href="https://github.com/aae121" target="_blank" title="GitHub">👨‍💻</a>
+                <a href="https://linkedin.com/in/ahmedaelkhodary" target="_blank" title="LinkedIn">🔗</a>
+                <a href="mailto:aae121@aucegypt.edu" title="Email">✉️</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
