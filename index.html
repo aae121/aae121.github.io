@@ -26,6 +26,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#api-projects">Live API</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#awards">Awards</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -163,6 +164,21 @@
             </div>
         </section>
 
+        <section class="section" id="api-projects">
+            <div class="container reveal">
+                <h2 class="section-title">Live GitHub Projects</h2>
+                <p class="section-subtitle">This section is powered by the GitHub API and updates dynamically with my public repositories.</p>
+            <div class="contact-card api-panel">
+                    <div class="section-controls">
+                        <button class="toggle-section" data-target="githubReposContent" data-label="GitHub Projects" aria-expanded="true">Hide GitHub Projects</button>
+                        <button class="detail-btn" id="refreshReposBtn" type="button">Refresh Repositories</button>
+                    </div>
+                    <p id="githubRepoStatus" class="api-status" aria-live="polite">Loading repositories...</p>
+                    <div id="githubReposContent" class="repo-grid"></div>
+                </div>
+            </div>
+        </section>
+
         <section class="section" id="skills">
             <div class="container reveal">
                 <h2 class="section-title">Technical Skills</h2>
@@ -277,7 +293,7 @@
     <footer>
         <div class="container footer-line">
             <p>Copyright <span id="year"></span> Ahmed Ayman Elkhodary</p>
-            <p>Built as Assignment 2 interactive CV submission</p>
+            <p>Built as Assignment 3 portfolio with API integration</p>
         </div>
     </footer>
 
