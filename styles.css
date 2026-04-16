@@ -456,6 +456,57 @@ nav a.active {
     color: var(--success);
 }
 
+.api-panel {
+    gap: 1rem;
+}
+
+.api-status {
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.api-status.error {
+    color: var(--error);
+}
+
+.api-status.success {
+    color: var(--success);
+}
+
+.repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.8rem;
+}
+
+.repo-card {
+    background: var(--card-bg);
+    border: 2px solid var(--stroke);
+    border-radius: 14px;
+    padding: 0.9rem;
+    display: grid;
+    gap: 0.45rem;
+}
+
+.repo-card h4 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1rem;
+}
+
+.repo-meta {
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+.repo-card a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.repo-card a:hover {
+    text-decoration: underline;
+}
+
 footer {
     padding: 2.2rem 0 3rem;
 }
